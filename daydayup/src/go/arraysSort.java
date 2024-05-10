@@ -1,0 +1,35 @@
+package go;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class arraysSort {
+    public static void main(String[] args) {
+        String[] strs = {"apple", "banana", "orange", "grape", "kiwi"};
+        //最复杂的方法//建一个子类实现这个接口,然后创建子类的对象
+        Arrays.sort(strs, new StringLengthComparator());
+
+        //匿名内部类
+        Arrays.sort(strs, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+        //再简化
+        Arrays.sort(strs, (o1, o2)-> {
+                return o1.length() - o2.length();});
+
+        System.out.println("按照字符串长度升序排序后的数组：");
+        for (String str : strs) {
+            System.out.println(str);
+        }
+    }
+
+    static class StringLengthComparator implements Comparator<String> {
+        @Override
+        public int compare(String s1, String s2) {
+            return s1.length() - s2.length();
+        }
+    }
+}
