@@ -2,8 +2,8 @@ package leetcode;
 
 import java.util.Stack;
 
-/**这题千万别动规dp
- * v0v1单调栈 , v1更简单啊(据说是叫动规,但是不用dp..
+/**这题千万别 动规dp
+ * v0v1单调栈 , v2更简单啊(官方解答据说是叫动规,但是不用dp..
  */
 public class l42 {
     public int trap(int[] height) {
