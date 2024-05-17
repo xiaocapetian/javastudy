@@ -10,12 +10,13 @@ public class l227v1 {
         int num = 0;
         int n = s.length();
         for (int i = 0; i < n; ++i) {
-            if (Character.isDigit(s.charAt(i))) {//Character.isDigit(char ch) 判断ch是否是一个数字字符
+            //Character.isDigit(char ch) 判断ch是否是一个数字字符
+            if (Character.isDigit(s.charAt(i))) {
                 num = num * 10 + s.charAt(i) - '0';//如果是数字字符,继续改造这个数字
             }
             if (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == n - 1) {
                 //如果是符号了,
-                //看存的上一个符号是什么
+                //看存的"上一个符号"是什么  👈 [只有看到符号,才对上一个符号做运算]
                 switch (preSign) {
                     case '+':
                         stack.push(num);

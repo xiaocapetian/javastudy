@@ -5,8 +5,8 @@ import java.util.Stack;
 public class l227 {
     /**
      * 写的很慢,运行很慢 直接看v1,一样的思路人家就写的简单
-     * @param s
-     * @return
+     * @param s 给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。
+     * @return 整数除法仅保留整数部分。
      */
     public int calculate(String s) {
         //Deque<String> deque = new ArrayDeque<>();
