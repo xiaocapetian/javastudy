@@ -2,6 +2,9 @@ package leetcode300;
 
 import java.util.Arrays;
 
+/**
+ * 最长递增子序列
+ */
 public class l300 {
     /**dp[]往前找一个比它小的最大dp[]出来+1
      * 看到l354,在冲一遍吧,            我进步了啊,一遍过!
@@ -14,6 +17,7 @@ public class l300 {
         int res=0;
         for (int i = 0; i < bp.length; i++) {
             int max = 0;
+            //对于每一个i,都要派一个j出去，找所有nums值比它小的中dp[]最大者
             for (int j = 0; j < i; j++) {
                 if(nums[j]<nums[i]){
                     max = Math.max(max,bp[j]);
