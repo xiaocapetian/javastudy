@@ -18,29 +18,19 @@ public class l84 {
             //本题的想法是求左边第一个比它小的,右边第一个比它小的
             //而且是遇到比它小的就不要了!
             //千万不要想着左一个右一个!!
+
+            //参考l42接雨水的想法,很多相似的
+            //我的单调栈是一个栈顶最大,越深越小的
+            //我手上的newheights[i]比栈顶的要小,那就不行了,得取出来
             while (!stack.isEmpty()&&newheights[i]<newheights[stack.peek()]){
                 Integer big = stack.pop();
-                //int small2 = newheights[stack.peek()];
-                //int small1 = newheights[i];
-                //int wide1 = i-big-1;
-                //int wide2 = big-stack.peek()-1;
-                int wide = i-stack.peek()-1;
-                // System.out.println("wide:"+wide1+","+wide2);
+
+                int wide = i-stack.peek()-1;//得一个宽度
+                //高度是newheights[big]
+                //System.out.println("wide:"+wide1+","+wide2);
                 //System.out.println("small1:"+small1+",small2:"+small2+",big="+newheights[big]);
                 area = Math.max(newheights[big]*wide,area);
 
-//                if(small1<small2){
-//                    int area1 = small1*(wide1+wide2-1);
-//                    int area2 = small2*wide2;
-//                    System.out.println("area:"+area1+","+area2);
-//                    area = Math.max(Math.max(area1,area2),area);
-//                }else {
-//                    int area1 = small1*wide1;
-//                    int area2 = small2*(wide1+wide2-1);
-//                    System.out.println("area:"+area1+","+area2);
-//                    area = Math.max(Math.max(area1,area2),area);
-//                }
-                //area = Math.max(newheights[big],area);
             }
             stack.push(i);
         }

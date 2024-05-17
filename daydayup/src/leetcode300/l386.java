@@ -3,11 +3,11 @@ package leetcode300;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/**
- * 怎么没想到用dfs呢？
- */
-public class l386 {
 
+public class l386 {
+    /**
+     * 怎么没想到用dfs呢？
+     */
     List<Integer> res = new ArrayList<>();
     public List<Integer> lexicalOrder(int n) {
 
