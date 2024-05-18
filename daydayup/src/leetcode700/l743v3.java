@@ -3,7 +3,7 @@ package leetcode700;
 
 public class l743v3 {
     private int[] canVisit;
-    /**   不要map了,建一个二维数组map更快了,终于又快了一点130ms,但是还是超级慢的
+    /**   不要Map<Integer, List<int[]>>了,建一个二维数组map更快了,终于又快了一点130ms,但是还是超级慢的
      *
      * @param times 给你一个列表 times，表示信号经过 有向 边的传递时间。 times[i] = (ui, vi, wi)，其中 ui 是源节点，vi 是目标节点， wi 是一个信号从源节点传递到目标节点的时间。
      * @param n 有 n 个网络节点，标记为 1 到 n。

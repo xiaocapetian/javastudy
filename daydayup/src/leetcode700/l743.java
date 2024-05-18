@@ -22,17 +22,18 @@ public class l743 {
      */
     public int networkDelayTime(int[][] times, int n, int k) {
         int[] canVisit = new int[n + 1];
+        //最开始要把所有点的距离设成无穷大，这里往后移动了一位，从0开始，（除了起始点k的距离是0
         for (int i = 1; i < canVisit.length; i++) {
             canVisit[i] = Integer.MAX_VALUE;
         }
-        //
+        //这是用邻接矩阵保存map[][] map[i][j]代表i到j的距离
         int[][] map = new int[n+1][n+1];
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map.length; j++) {
                 map[i][j]=Integer.MAX_VALUE;
             }
         }
-        //map[i][j]代表i到j的距离
+        //保存进去
         for (int i = 0; i < times.length; i++) {
             map[times[i][0]][times[i][1]] = times[i][2];
         }
@@ -40,22 +41,26 @@ public class l743 {
         canVisit[k] = 0;
         boolean[] visited = new boolean[n+1];
         for (int i = 0;i<n;i++){
+            //虽然是i从1到n,但是我不是要访问i下标索引的点,i在之后没有功能
+
             //System.out.println("前"+Arrays.toString(visited));
-            //要找一个同时符合:1.没访问过,2.canVisit[k]最小的点p1.最小距离是distance
+            //要找一个点p1,它要同时符合:1.没访问过,2.canVisit[k]最小.  最小距离是distance
             int p1 = 0;
             int distance = Integer.MAX_VALUE;
             for (int j = 1;j<n+1;j++){                             //[注意]那这里j的范围就得从1开始算了
-                if(!visited[j]&&distance> canVisit[j]){
+                if(!visited[j]&&distance> canVisit[j]){//同时符合:1.没访问过,2.canVisit[k]最小
                     p1 = j;
                     distance = canVisit[j];
                 }
             }
-            //现在p1访问过了
+            //找到p1了,现在p1访问过了
             visited[p1] =true;
             //怎么访问?
-            for (int j = 0; j < map[p1].length; j++) {
+            for (int j = 0; j < map[p1].length; j++) {//访问p1的所有邻居
                 if(map[p1][j]!=Integer.MAX_VALUE//只要p1和j点有路且
                         &&map[p1][j]+ canVisit[p1]< canVisit[j]){//到p1的路+p1到j的路<到j的路
+                    //[注意]这里不要求j没有访问过,恰恰相反,这是关键!比如第一次访问1->3距离5 ,又访问1->6->3距离2+2=4,
+                    // 那就得更新1->3的距离啊!不能因为3之前到过就不要了!所以这里的访问过只专指以它为起点访问了所有邻居
                     canVisit[j] = map[p1][j]+ canVisit[p1];
                 }
             }
@@ -63,9 +68,7 @@ public class l743 {
         }
         int res = 0;
         for (int i : canVisit) {
-            if(i>res){
-                res=i;
-            }
+            res = Math.max(res,i);
         }
 //        for (int i = 0; i < map.length; i++) {
 //            System.out.println(Arrays.toString(map[i]));
