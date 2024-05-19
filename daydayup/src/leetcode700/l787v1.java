@@ -2,7 +2,7 @@ package leetcode700;
 
 import java.util.ArrayList;
 import java.util.List;
-//如同l743v3但是还是超时了
+//如同l743v3,我改进了存储方式,但是还是超时了
 public class l787v1 {
     int Dst;
     int K;
