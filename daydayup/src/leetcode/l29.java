@@ -13,6 +13,7 @@ public class l29 {
          if (dividend==0)return 0;
          if((dividend<0&&divisor>0)||(dividend>0&&divisor<0))fuhao = -1;
 
+         //负数比正数多一个位置,如果觉得这个麻烦,就像v1一样,把正都转成负
          if(dividend==Integer.MIN_VALUE){
              if(divisor==1){return Integer.MIN_VALUE;}
              if(divisor==-1){return Integer.MAX_VALUE;}
