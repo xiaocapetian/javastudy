@@ -35,7 +35,4 @@ public class l50_1 {
       作者：Krahets
       链接：https://leetcode.cn/problems/powx-n/solutions/241471/50-powx-n-kuai-su-mi-qing-xi-tu-jie-by-jyd/
       来源：力扣（LeetCode）
-
-
-
      */

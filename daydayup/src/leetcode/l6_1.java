@@ -31,7 +31,7 @@ public class l6_1 {
             }
             System.out.println();
         }
-        String c = "";
+
         StringBuffer ans = new StringBuffer();
         for (char[] row : arr) {
             for (char ch : row) {
