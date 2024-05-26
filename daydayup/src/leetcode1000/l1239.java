@@ -15,9 +15,14 @@ public class l1239 {
      *
      * @param arr 字符串 s 是将 arr 的含有 不同字母 的 子序列 字符串 连接 所得的字符串。arr = ["un","iq","ue"]
      * @return 返回所有可行解 s 中最长长度。
+     *
+     * 由于只关心某个字符是否出现，而不关心某个字符在原字符串的位置，因此可以将字符串使用 int 进行表示；
+     * 由于使用 int 进行表示，因而可以使用「位运算」来判断某个字符是否可以被追加到当前状态中；
+     *
      */
     public int maxLength(List<String> arr) {
         n = arr.size();
+        //1.预处理掉「本身具有重复字符」的无效字符串，并去重；
         HashSet<Integer> set = new HashSet<>();
         for (String s : arr) {
             int val = 0;
@@ -38,7 +43,7 @@ public class l1239 {
 
         int idx = 0;
         int total = 0;
-        //set里的每个编码放进 int[]里
+        //set里的每个位掩码放进 hash[](int[])里
         for (Integer i : set) {
             hash[idx] = i;
             idx++;
@@ -50,32 +55,49 @@ public class l1239 {
 
     /**
      *
-     * @param u 当前处理到的位掩码在 hash 中的索引。
+     * @param index 当前处理到的位掩码的索引(在 hash[] 中)。
      * @param cur 当前已选择的字符集合的位掩码。
-     * @param total 剩余未处理字符集合的位掩码。
+     * @param remain 剩余未处理字符集合的位掩码。
      */
-    void dfs(int u, int cur, int total) {
-        if (get(cur | total) <= ans) return;
-        if (u == n) {
+    void dfs(int index, int cur, int remain) {
+        //如果当前已选择的字符集合的位掩码加上未处理的位掩码,都不如现在的res多,就算剩下的可以加进来,也不会超过res了,所以剪枝了
+        if (get(cur | remain) <= ans) return;
+
+        if (index == n) {//是否更新ans
             ans = Math.max(ans, get(cur));
             return;
         }
-        // 在原有基础上，选择该数字（如果可以）
-        if ((hash[u] & cur) == 0) {
-            dfs(u + 1, hash[u] | cur, total - (total & hash[u]));
+        // 如果之前已经选到的位掩码和这一位index是重叠的,那可以选这一位
+        if ((hash[index] & cur) == 0) {
+            dfs(index + 1, hash[index] | cur, remain - (remain & hash[index]));
         }
         // 不选择该数字
-        dfs(u + 1, cur, total);
+        dfs(index + 1, cur, remain);
     }
+
+    /**
+     *
+     * @param cur 当前已选择的字符集合的位掩码,
+     * @return 选的位掩码包含多少个1(有几个字母)
+     */
     int get(int cur) {
         if (map.containsKey(cur)) {
             return map.get(cur);
         }
         int ans = 0;
-        for (int i = cur; i > 0; i -= lowbit(i)) ans++;
+        //看着这长串里有几个1
+        //比如 101010 ,先-000010 得到101000 ,再减001000,得到100000,最后减100000得到0
+        //所以算出来一共3个1
+        for (int i = cur; i > 0; i -= lowbit(i)) {ans++;}
         map.put(cur, ans);
         return ans;
     }
+
+    /**
+     * 怎么能忘了呢? 一个原码和补码相与&,得到什么呀?最后一个为1的位置
+     * @param x
+     * @return
+     */
     int lowbit(int x) {
         return x & -x;
     }
