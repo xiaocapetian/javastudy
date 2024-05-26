@@ -12,7 +12,7 @@ public class l219 {
             }else {
                 if(i-map.get(nums[i])<=k){return true;}
                 else {
-                    map.put(nums[i],i);
+                    map.put(nums[i],i);//把前一个给覆盖掉了
                 }
             }
         }
