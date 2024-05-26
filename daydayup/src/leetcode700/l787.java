@@ -10,7 +10,8 @@ public class l787 {
     int Price = Integer.MAX_VALUE;
 
     /**
-     *是对的,但是超时了
+     *是对的,但是超时了  这道题我第一反应就是回溯啊!
+     *
      * @param n 有 n 个城市通过一些航班连接。
      * @param flights 给你一个数组 flights ，其中 flights[i] = [fromi, toi, pricei] ，表示该航班都从城市 fromi 开始，以价格 pricei 抵达 toi。
      * @param src 出发城市 src
