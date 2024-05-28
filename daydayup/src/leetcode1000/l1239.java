@@ -32,6 +32,7 @@ public class l1239 {
             if (val != -1) set.add(val);//如果！=-1，说明这个string s里没有重复的字符，可以放进set里（且放进去的就是26位长的二进制数）
         }
 
+
         n = set.size();
         if (n == 0) return 0;
         hash = new int[n];
