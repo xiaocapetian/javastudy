@@ -1,5 +1,7 @@
 package leetcode700;
 
+import java.util.Arrays;
+
 /**
  * 最短路算法中的 dijkstra 算法:
  * 但是这题不可以啊!为什么?因为限制了要边不能超过k
@@ -69,6 +71,7 @@ public class l787v2 {
                 }
             }
             System.out.println(Arrays.toString(distance));
+
         }
         return distance[dst]==Integer.MAX_VALUE?-1:distance[dst];
     }
