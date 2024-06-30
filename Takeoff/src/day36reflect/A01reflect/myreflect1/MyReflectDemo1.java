@@ -21,7 +21,7 @@ public class MyReflectDemo1 {
         Class clazz2 = Student.class;
 
 
-       //3.第三种方式
+       //3.第三种方式   通过对象获取一个class
         //当我们已经有了这个类的对象时，才可以使用。
         Student s = new Student();
         Class clazz3 = s.getClass();

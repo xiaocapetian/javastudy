@@ -1,11 +1,11 @@
-package day36reflect.A01reflect.myreflect3;
+package day36reflect.A01reflect.myreflect3_getMembervariables;
 
 import java.lang.reflect.Field;
 
 public class MyReflectDemo {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
     /*
-       Class类中用于获取成员变量的方法
+       Class类中用于获取[成员变量]的方法
             Field[] getFields()：                返回所有公共成员变量对象的数组
             Field[] getDeclaredFields()：        返回所有成员变量对象的数组
             Field getField(String name)：        返回单个公共成员变量对象
@@ -20,7 +20,7 @@ public class MyReflectDemo {
         System.out.println("利用反射获取成员变量");
 
         //1.获取class字节码文件的对象
-        Class clazz = Class.forName("com.itheima.myreflect3.Student");
+        Class clazz = Class.forName("com.itheima.myreflect3_getMembervariables.Student");
 
         //2.获取所有的成员变量
         System.out.println("获取所有的成员变量");
@@ -46,8 +46,8 @@ public class MyReflectDemo {
         Class<?> type = name.getType();
         System.out.println(type);
 
-        //获取成员变量记录的值
-        //想一下这个值,是对象的值啊,那么
+        //获取private私有成员变量name记录的值
+        //想一下这个值,是对象s的值啊,那么
         Student s = new Student("zhangsan",23,"男");
         name.setAccessible(true);
         String value = (String) name.get(s);

@@ -1,4 +1,4 @@
-package day36reflect.A01reflect.myreflect4;
+package day36reflect.A01reflect.myreflect4_MemberMethod;
 
 
 import java.lang.reflect.InvocationTargetException;
@@ -8,7 +8,7 @@ import java.lang.reflect.Parameter;
 public class MyReflectDemo {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
     /*
-       Class类中用于获取成员方法的方法
+       Class类中用于获取[成员方法]的方法
             Method[] getMethods()：返回所有公共成员方法对象的数组，包括继承的
             Method[] getDeclaredMethods()：返回所有成员方法对象的数组，不包括继承的
             Method getMethod(String name, Class<?>... parameterTypes) ：返回单个公共成员方法对象
@@ -32,7 +32,7 @@ public class MyReflectDemo {
 
 
         //1. 获取class字节码文件对象
-        Class clazz = Class.forName("com.itheima.myreflect4.Student");
+        Class clazz = Class.forName("com.itheima.myreflect4_MemberMethod.Student");
 
         //2. 获取里面所有的方法对象(包含父类中所有的公共方法)
         Method[] methods = clazz.getMethods();
