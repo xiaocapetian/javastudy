@@ -5,8 +5,21 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+/**
+ * 疯狂超时题,居然写了6版
+ */
 
 public class l523 {
+    /**
+     * @param nums
+     * @param k
+     * @return
+     *
+    //sum [j] - sum[i-1]=n*k
+    //sum [j]/k - sum[i-1]/k = n  (n为整数)
+    //sum [j]和sum[i-1]对k取余数相等
+     我要往set里放sum[]%k,  直到放到一个已经存在的-----不要顺序,要不重复==>set
+     */
     public boolean checkSubarraySum(int[] nums, int k) {
         int[] sum = new int[nums.length+1];/*重点  如果sum往后推一位会更好   sum[0]空出来给0*/
         //
