@@ -2,7 +2,7 @@ package leetcode1000;
 
 import java.util.Stack;
 
-public class L1047 {
+public class l1047 {
     //自己写的栈 Stack接口
     public String removeDuplicates(String s) {
         Stack<Character> stack = new Stack<>();
