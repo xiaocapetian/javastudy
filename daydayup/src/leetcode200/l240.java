@@ -39,6 +39,12 @@ public class l240 {
 
     }
     //自己写的超时了
+    /**
+     * 我回看一下,现在的我都想不出这个思路了我抄😭了
+     * @param matrix
+     * @param target
+     * @return
+     */
     public boolean searchMatrix(int[][] matrix, int target) {
         return find(matrix,target,0,0);
     }
@@ -62,6 +68,24 @@ public class l240 {
                 if (element == target) {
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    /*这题又忘了，看完再写一遍，
+    二维数组找值,从右上到左下z字形走位（就非常简单了）
+     */
+    public boolean findTargetIn2DPlants5(int[][] matrix, int target) {
+        if (matrix==null||matrix.length ==0){return false;}
+        int x=0;
+        int y = matrix[0].length-1;
+        while (x<matrix.length&&y>=0){
+            if(matrix[x][y]==target){return true;}
+            else if(matrix[x][y]>target){
+                y++;
+            }else {
+                x--;
             }
         }
         return false;
