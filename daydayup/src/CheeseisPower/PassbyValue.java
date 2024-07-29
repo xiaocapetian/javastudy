@@ -11,10 +11,13 @@ public class PassbyValue {
         System.out.println("After reassignObject: " + obj.value); // 输出 10
     }
 
+    //修改对象的属性会影响原对象
     public static void modifyObject(MyObject o) {
         o.value = 10;
     }
 
+    //但重新赋值对象不会影响原对象
+    //本来o指向obj所指向的 那个，但是现在o指向了新的一个，有改了它，当然不影响obj指向的东西啦
     public static void reassignObject(MyObject o) {
         o = new MyObject();
         o.value = 20;
