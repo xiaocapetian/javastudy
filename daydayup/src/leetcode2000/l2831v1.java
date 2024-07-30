@@ -20,6 +20,8 @@ public class l2831v1 {
      他们中有right - left+1个相同的元素i
      所以要删(losList[3](right)-left[3](left)) - (right - left)个
     若>k,则不符合要求,那就得left++ 了 否则可以和res比max  然后right继续向前滑
+
+     l424就可以用这个方法
      */
 
     public int longestEqualSubarray(List<Integer> nums, int k) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- *
+ *l2831的方法
  */
 public class l424 {
     public int characterReplacement(String s, int k) {
