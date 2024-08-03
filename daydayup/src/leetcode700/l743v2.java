@@ -16,7 +16,7 @@ public class l743v2 {
         for (int i = 1; i < canVisit.length; i++) {
             canVisit[i] = Integer.MAX_VALUE;
         }
-        //拿一个map来存
+        //times的信息拿一个map来存   键:出发地 值:[目的地,花费]
         Map<Integer, List<int[]>> map = new HashMap<>();
         for (int i = 0; i < times.length; i++) {
             List<int[]> list = map.getOrDefault(times[i][0], new ArrayList<>());

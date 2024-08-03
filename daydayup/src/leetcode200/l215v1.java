@@ -12,7 +12,7 @@ public class l215v1 {
         int n = _nums.length;
         return quickselect(_nums, 0, n - 1, n - k);
     }
-    static int quickselect(int[] nums, int shou, int wei, int k) {
+    private static int quickselect(int[] nums, int shou, int wei, int k) {
         if (shou == wei) return nums[k];
         System.out.println("现在shou是nums["+shou+"] ="+nums[shou] +",  wei是nums["+wei+"] ="+nums[wei]);
         int left = shou - 1, right = wei + 1;//为什么要这样,因为这回是do{}先做一次再while

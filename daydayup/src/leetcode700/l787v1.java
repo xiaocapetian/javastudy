@@ -19,33 +19,35 @@ public class l787v1 {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
         Dst = dst;
         K =k;
-        int[][] flylist=new int[n][n];
-
+        //用了一个flyMap来存
+        int[][] flyMap=new int[n][n];
         boolean[] visited = new boolean[n];
         visited[src]=true;
         for (int i = 0; i < flights.length; i++) {
 
-            flylist[flights[i][0]][flights[i][1]]=flights[i][2];
+            flyMap[flights[i][0]][flights[i][1]]=flights[i][2];
         }
         List<Integer> start = new ArrayList<>();
         start.add(src);
-        findpath(flylist,start,0,visited,0);
+        findpath(flyMap,start,0,visited,0);
 
         return Price==Integer.MAX_VALUE?-1:Price;
     }
     private void findpath(int[][] flylist,List<Integer> path,int nowprice,boolean[] visited,int step ){
         System.out.println(path);
         System.out.println("nowprice"+nowprice);
+        //价格超了/步数超了
         if(step>K+1||nowprice>=Price){return;}/*[易错]*/
         int from = path.get(path.size()-1);
+        //如果我已经到了目的地
         if(from==Dst){
             if(nowprice<Price ){
-
                 Price = nowprice;
-                return;
             }
+            return;
         }
         for (int i = 0; i < flylist[from].length; i++) {
+            //只要2个之间有桥,且没访问过
             if(flylist[from][i]!=0&&!visited[i]){
                 visited[i] = true;
                 path.add(i);

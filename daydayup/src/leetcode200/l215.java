@@ -49,7 +49,7 @@ public class l215 {
         //System.out.println("nums.length-k我要求的这个值在第:"+(nums.length-k)+"位");
         if(right==nums.length-k){res = nums[right];}
         else if(right>nums.length-k){
-            System.out.println("排序前面,shou="+shou+"right-1="+(right-1));
+            System.out.println("排序前面,从shou="+shou+"right-1="+(right-1));
             quick(nums,k,shou,right-1);
         }
         else {

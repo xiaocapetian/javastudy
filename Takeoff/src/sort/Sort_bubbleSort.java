@@ -1,4 +1,4 @@
-package takeoff;
+package sort;
 //第一轮比较完毕之后，最大值就已经确定，第二轮可以少循环一次
 public class Sort_bubbleSort {
     /*
