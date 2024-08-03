@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class MarkdownImageExtractor {
 
     public static void main(String[] args) {
-        String filePath = "E:\\flanlin\\study\\Java\\[03]Git"+"\\";
+        String filePath = "E:\\flanlin\\study\\Java\\[08]javaRedis"+"\\";
         Path baseDir = Paths.get(filePath);
         Path assetsDir = baseDir.resolve("assets");
         Path backupDir = baseDir.resolve("backups");
