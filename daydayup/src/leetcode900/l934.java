@@ -39,7 +39,7 @@ public class l934 {
     }
 
     private void dfs(int[][] grid, int x, int y, boolean[][] visited,Queue<int[]> queue){
-        //注意这个写法啊,以后这个是否会dfs的判断最好在dfs的最开始判断,这样写起来简便多了
+        //注意这个写法啊,以后这个是否会dfs的判断(什么合法呀是不是访问过呀)最好在dfs的最开始判断,这样写起来简便多了
         if(!isvalid(grid,x,y)||visited[x][y]||grid[x-1][y]!=1)return;
         visited[x][y] = true;
         grid[x][y]=2;
