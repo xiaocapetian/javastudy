@@ -8,7 +8,8 @@ import java.util.Arrays;
  * 举个 🌰，例如本次松弛操作使用了从 a 到 b 的当前最短距离来更新 dist[b]，直接使用 dist[a] 的话，
  * 不能确保 dist[a] 不是在同一次迭代中所更新，如果 dist[a] 是同一次迭代所更新的话，那么使用的边数将会大于 k 条。
  * 因此在每次迭代开始前，我们都应该对 dist进行备份，在迭代时使用备份来进行松弛操作。
- *
+
+ 讲的那么高深,什么"松弛操作",其实就是 判断是不是更近,更新一下距离 的问题
  * 作者：宫水三叶
  * 链接：https://leetcode.cn/problems/cheapest-flights-within-k-stops/solutions/955290/gong-shui-san-xie-xiang-jie-bellman-ford-dc94/
  * 来源：力扣（LeetCode）
@@ -58,6 +59,7 @@ public class l787v3 {
         }
         return distance[dst]!=Integer.MAX_VALUE?distance[dst]:-1;
     }
+
     public int findCheapestPriceWithoutClone(int n, int[][] flights, int src, int dst, int k) {
 
         k = k+1;//k个中转就是k+1个边,

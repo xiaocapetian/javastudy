@@ -22,7 +22,7 @@ public class l743v3 {
                 map[i][j]=Integer.MAX_VALUE;
             }
         }
-        //map[i][j]代表i到j的距离
+        //times的信息用一个 map[i][j]代表i到j的距离
         for (int i = 0; i < times.length; i++) {
             map[times[i][0]][times[i][1]] = times[i][2];
         }
@@ -40,7 +40,8 @@ public class l743v3 {
     private void visit(int[][] map,int k,int cost) {
         canVisit[k] = cost;
         for (int j = 0; j < map.length; j++) {
-            if(map[k][j]!=Integer.MAX_VALUE&&cost+map[k][j]<canVisit[j]){
+            if(map[k][j]!=Integer.MAX_VALUE //说明2点之间有一个边
+                    &&cost+map[k][j]<canVisit[j]){
                 visit(map,j,cost+map[k][j]);
             }
         }

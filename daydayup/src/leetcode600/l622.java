@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class l622 {
 
-    /**
+    /**(二刷的时候想的也是这个方法)
      * 速度击败1%,真是有够好笑的呢
      * 经过一番修改👇,击败100%啦
      * 就是说别循环遍历判断是不是-1啊,应该用上size!!!!!
@@ -71,13 +71,13 @@ public class l622 {
     /**
      * 速度击败1%,真是有够好笑的呢
      */
-    class MyCircularQueue0 {
+    class MyCircularQueueV1 {
         int cur = 0;//操作的次数
         int chang;
         int size = 0;
         private int[] elements;
 
-        public MyCircularQueue0(int k) {
+        public MyCircularQueueV1(int k) {
             //chang = k+1;
             chang = k;//造一个长度为k的循环队列
             elements = new int[chang];

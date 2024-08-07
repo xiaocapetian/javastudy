@@ -1,4 +1,4 @@
-package takeoff;
+package sort;
 
 public class Sort_InsertSort {
     public static void main(String[] args) {

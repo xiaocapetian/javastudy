@@ -74,8 +74,8 @@ public class l300 {
         return res;
     }
 
-
-    //想自己写一遍结果反面教材了,这种不要连续的子数组,不应该用dp[i][j]表示从i开始,到j结束的
+}
+//想自己写一遍结果反面教材了,这种不要连续的子数组,不应该用dp[i][j]表示从i开始,到j结束的
 /*    public int lengthOfLIS2(int[] nums) {
         int[][] dp = new int[nums.length][nums.length];
         int res = 0;
@@ -99,6 +99,3 @@ public class l300 {
         }
         return res;
     }*/
-
-
-}

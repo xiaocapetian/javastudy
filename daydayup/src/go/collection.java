@@ -10,37 +10,34 @@ public class collection {
     }
 
     public static void SettoArr(){
-        // 假设 res 是你的 Set<Integer>
-        Set<Integer> res = new HashSet<>();
-        res.add(1);
-        res.add(2);
-        res.add(3);
+        // 假设 set 是你的 Set<Integer>
+        Set<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(3);
 
         // 将 Set<Integer> 转换为 int[] 数组
-        int[] result = res.stream().mapToInt(Integer::intValue).toArray();
-        Integer[] res1 =res.toArray(new Integer[res.size()]);
-        Integer[] res2 =res.toArray(new Integer[0]);
+        int[] result = set.stream().mapToInt(Integer::intValue).toArray();
+        Integer[] res1 =set.toArray(new Integer[set.size()]);
+        Integer[] res2 =set.toArray(new Integer[0]);
 
-        Integer[] res3 = new Integer[res.size()];
-        Integer[] res33 = res.toArray(res3);//toArray()传进的数组res3如果够大,就会把set转成的数组存进res3里
-        //此时就算返回,返回的res33也和res3,是同一个东西
-        //        System.out.println(res3);
-        //        System.out.println(res33);
-        //        System.out.println(Arrays.toString(res3));
-        //        System.out.println(Arrays.toString(res33));
+        System.out.println("result"+Arrays.toString(result));
+        System.out.println("res1"+Arrays.toString(res1));
+        System.out.println("res2"+Arrays.toString(res2));
 
-        Integer[] res4 = new Integer[res.size()-1];
-        Integer[] res5 = res.toArray(res4);  //toArray()传进的数组长度不足，或者为 null，则会创建一个新的数组，并返回该数组
-        //System.out.println(Arrays.toString(res4));  //res4继续为1空
-        //System.out.println(Arrays.toString(res5));  //新造一个res5
+        Integer[] res3 = new Integer[set.size()];
+        //set.toArray(res3)  这一步会把set转成的数组存进res3里
+        Integer[] res33 = set.toArray(res3);//toArray()传进的数组res3如果够大,就会把set转成的数组存进res3里
+        //此时就算返回,返回的res33也和res3,是指向一模一样的一个东西
+        System.out.println("res3"+res3);      //[Ljava.lang.Integer;@4f3f5b24
+        System.out.println("res33"+res33);    //[Ljava.lang.Integer;@4f3f5b24
+        System.out.println("res3"+Arrays.toString(res3));
+        System.out.println("res33"+Arrays.toString(res33));
 
-        // 输出结果
-        System.out.println(Arrays.toString(result));
-        System.out.println(Arrays.toString(res1));
-        System.out.println(Arrays.toString(res2));
-
-
-
+        Integer[] res4 = new Integer[set.size()-1];
+        Integer[] res5 = set.toArray(res4);  //toArray()传进的数组长度不足，或者为 null，则会创建一个新的数组，并返回该数组
+        System.out.println("res4"+Arrays.toString(res4));  //[null, null]   //res4继续为1空
+        System.out.println("res5"+Arrays.toString(res5));  //[1, 2, 3]    //新造一个res5
 
     }
     public static void SettoArr2(){

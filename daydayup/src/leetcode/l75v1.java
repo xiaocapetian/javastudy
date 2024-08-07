@@ -3,17 +3,17 @@ package leetcode;
 import java.util.Arrays;
 
 public class l75v1 {
-    //「快速排序」的子过程 partition，即：通过一次遍历，把数组分成三个部分
+    //「快速排序」的子过程 partition(分隔)，即：通过一次遍历，把数组分成三个部分
     public void sortColors(int[] nums) {
         int len = nums.length;
         if (len < 2) {
             return;
         }
-
-        // all in [0, zero) = 0
-        // all in [zero, i) = 1
-        // all in [two, len - 1] = 2
-
+/*        我的目的是:
+         all in [0, zero) = 0
+         all in [zero, i) = 1
+         all in [two, len - 1] = 2*/
+//我弄了一个zero指针(从左向右发)和一个two指针(从右向左发)
         // 循环终止条件是 i == two，那么循环可以继续的条件是 i < two
         // 为了保证初始化的时候 [0, zero) 为空，设置 zero = 0，
         // 所以下面遍历到 0 的时候，先交换，再加
